@@ -42,10 +42,10 @@ const navIems: NavItemsProps[] = [
 export function NavItems() {
     const pathaname = usePathname();
     return (
-        <div className="flex items-center justify-center gap-3 h-full">
+        <div className="flex items-center justify-center gap-2 h-full overflow-x-hidden">
             {navIems.map((item) => (
                 <Link key={item.id} href={item.href} className={cn(
-                    " flex items-center justify-center w-full text-lg  text-white hover:border border-white px-3 py-2 rounded-full transition-all",
+                    " flex items-center justify-center text-lg text-white border border-transparent hover:border-neutral-600 px-3 py-2 rounded-full transition-all",
                     pathaname === item.href ? "bg-white text-black" : "bg-transparent"
                 )}>
                     {item.name}
@@ -53,7 +53,7 @@ export function NavItems() {
             ))}
 
             <div className="flex items-center justify-center h-full">
-                <Button asChild className="border-l border-t-0 border-b-0 border-r-0 border-neutral-600 px-12 h-full w-16 rounded-none bg-black hover:bg-white hover:text-black transition-colors text-lg ">
+                <Button asChild className="border-l border-t-0 border-b-0 border-r-0 border-neutral-600 px-10 h-full w-16 rounded-none bg-black hover:bg-white hover:text-black transition-colors text-lg ">
                     <Link href="/login">
                         Log in
                     </Link>
