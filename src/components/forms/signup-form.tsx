@@ -5,10 +5,8 @@ import { Input } from "@/components/ui/input"
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Loader2 } from "lucide-react";
 import { Separator } from "../ui/separator";
 import Link from "next/link";
-import { useState } from "react";
 import { toast } from "sonner";
 import {
     Form,
@@ -30,7 +28,6 @@ export function SignUpForm() {
     const signUpMutation = useMutation(trpc.auth.signup.mutationOptions({
         onSuccess: async (data) => {
             console.log("signup created");
-
             if (data) {
                 console.log("Before response");
                 try {
@@ -60,7 +57,7 @@ export function SignUpForm() {
                 toast.error("An error occurred while signing up.");
             }
         }
-    }))
+    }));
 
     const form = useForm<z.infer<typeof registerSchema>>({
         mode: "all",
@@ -69,11 +66,11 @@ export function SignUpForm() {
             email: "",
             password: ""
         },
-    })
+    });
 
     async function onSubmit(values: z.infer<typeof registerSchema>) {
         signUpMutation.mutate(values)
-    }
+    };
 
     return (
         <div className="gap-6 flex flex-col">

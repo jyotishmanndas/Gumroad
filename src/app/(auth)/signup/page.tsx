@@ -13,8 +13,8 @@ export default function SignupPage() {
                     </div>
                 </div>
             </div>
-            <div className=" col-span-2">
-                <div className="relative bg-red-300 h-full w-full flex items-center justify-center">
+            <div className="col-span-2">
+                <div className="relative h-full w-full flex items-center justify-center">
                     <Image
                         src="/login-image.webp"
                         alt="Image"

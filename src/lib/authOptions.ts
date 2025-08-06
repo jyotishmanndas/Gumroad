@@ -14,25 +14,22 @@ export const authOptions = {
             },
             async authorize(credentials) {
                 const { email, password } = await registerSchema.parseAsync(credentials)
-                
                 if (!email || !password) {
                     throw new Error("Email and password are required");
                 }
-                const user = await prisma.user.findFirst({
+                const user = await prisma.user.findUnique({
                     where: {
                         email: email
                     }
                 })
-
                 if (!user || !user.password) {
                     throw new Error("User not found with this email");
-                }
+                };
 
                 const passwordMatch = await bcrypt.compare(password, user.password);
-
                 if (!passwordMatch) {
                     throw new Error("Invalid password")
-                }
+                };;
 
                 return {
                     id: user.id,

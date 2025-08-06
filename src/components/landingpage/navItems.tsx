@@ -40,9 +40,7 @@ const navIems: NavItemsProps[] = [
 ]
 
 export function NavItems() {
-
     const pathaname = usePathname();
-
     return (
         <div className="flex items-center justify-center gap-3 h-full">
             {navIems.map((item) => (
@@ -54,7 +52,7 @@ export function NavItems() {
                 </Link>
             ))}
 
-           <div className="flex items-center justify-center h-full">
+            <div className="flex items-center justify-center h-full">
                 <Button asChild className="border-l border-t-0 border-b-0 border-r-0 border-neutral-600 px-12 h-full w-16 rounded-none bg-black hover:bg-white hover:text-black transition-colors text-lg ">
                     <Link href="/login">
                         Log in

@@ -23,7 +23,6 @@ import { signIn } from "next-auth/react";
 import { registerSchema } from "@/lib/zod";
 
 export function LoginForm() {
-
     const [loading, setLoading] = useState(false);
     const router = useRouter();
 
@@ -33,7 +32,7 @@ export function LoginForm() {
             email: "",
             password: ""
         },
-    })
+    });
 
     async function onSubmit(values: z.infer<typeof registerSchema>) {
         try {
@@ -45,7 +44,6 @@ export function LoginForm() {
 
             if (signInResponse?.ok) {
                 toast.success("Login successfully")
-
                 form.reset();
                 router.push("/discover")
             } else {
@@ -57,7 +55,7 @@ export function LoginForm() {
             console.log(error);
             toast.error("An error occurred while logging in. Please try again.");
         }
-    }
+    };
 
     return (
         <div className="gap-6 flex flex-col">

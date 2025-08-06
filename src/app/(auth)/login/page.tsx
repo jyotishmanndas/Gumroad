@@ -1,7 +1,7 @@
 import { LoginForm } from "@/components/forms/login-form";
 import Image from "next/image";
 
-export default function SignupPage() {
+export default function LoginPage() {
     return (
         <div className="grid min-h-svh lg:grid-cols-5 bg-[#242423]">
             <div className=" col-span-3">
