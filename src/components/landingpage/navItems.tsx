@@ -14,8 +14,8 @@ interface NavItemsProps {
 const navIems: NavItemsProps[] = [
     {
         id: 0,
-        name: "Home",
-        href: "/"
+        name: "Discover",
+        href: "/discover"
     },
     {
         id: 1,
@@ -29,14 +29,14 @@ const navIems: NavItemsProps[] = [
     },
     {
         id: 3,
-        name: "About",
-        href: "/about"
+        name: "Contact",
+        href: "/contact"
     },
     {
         id: 4,
-        name: "Contact",
-        href: "/contact"
-    }
+        name: "About",
+        href: "/"
+    },
 ]
 
 export function NavItems() {

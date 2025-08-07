@@ -1,8 +1,9 @@
-export default function DiscoverPage(){
+import { DiscoverNavbar } from "@/components/discover-page/navbar";
 
+export default function DiscoverPage() {
     return (
-        <div>
-            Discover
+        <div className="min-h-screen flex flex-col bg-[#242423]">
+           <DiscoverNavbar />
         </div>
     )
 }
