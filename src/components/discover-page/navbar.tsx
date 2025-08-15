@@ -2,10 +2,21 @@ import Link from "next/link";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { ShoppingCart } from "lucide-react";
+import { prisma } from "@/lib/db";
+import { NavCategories } from "./navCategories";
 
-export function DiscoverNavbar() {
+export async function DiscoverNavbar() {
+    // const category = await prisma.category.findMany({
+    //     where: {
+    //         id: "cme2azfmd00013xucg29pybzb"
+    //     },
+    //     include: {
+    //         subcategories: true
+    //     }
+    // });
+
     return (
-        <header className="py-9 px-16 bg-transparent flex items-center justify-center border-b border-[#edecec8c]">
+        <header className="py-8 px-14 bg-transparent flex items-center justify-center border-b border-[#edecec8c]">
             <div className="flex flex-col w-full gap-4">
                 <div className="flex item-center gap-3">
                     <Link href="/">
@@ -28,12 +39,9 @@ export function DiscoverNavbar() {
                         </Button>
                     </div>
                 </div>
-                <div className="flex items-center gap-4 text-[#DDDDDD] hover:">
-                    <p>All</p>
-                    <p>Design</p>
-                    <p>3D</p>
-                    <p>Music</p>
-                    <p>Films</p>
+                <div className="flex items-center text-[#DDDDDD]">
+                    {/* {JSON.stringify(category)} */}
+                    <NavCategories />
                 </div>
             </div>
         </header>
