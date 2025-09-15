@@ -12,7 +12,6 @@ export const categories = [
             "Branding",
             "Photography",
         ],
-        // color: "var(--neubrutalism-pink)",
     },
     {
         name: "Development",
@@ -27,7 +26,6 @@ export const categories = [
             "APIs & Integrations",
             "DevOps",
         ],
-        // color: "var(--neubrutalism-blue)",
     },
     {
         name: "Business",
@@ -42,7 +40,6 @@ export const categories = [
             "Customer Service",
             "HR & Recruiting",
         ],
-        // color: "var(--neubrutalism-yellow)",
     },
     {
         name: "Education",
@@ -57,7 +54,6 @@ export const categories = [
             "Language Learning",
             "Skill Development",
         ],
-        // color: "var(--neubrutalism-orange)",
     },
     {
         name: "Creative",
@@ -72,7 +68,6 @@ export const categories = [
             "Stock Media",
             "Creative Tools",
         ],
-        // color: "var(--neubrutalism-purple)",
     },
     {
         name: "Lifestyle",
@@ -87,6 +82,5 @@ export const categories = [
             "Hobbies",
             "Relationships",
         ],
-        // color: "var(--neubrutalism-green)",
     },
 ]

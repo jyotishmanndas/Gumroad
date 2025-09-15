@@ -27,17 +27,13 @@ export function SignUpForm() {
     const trpc = useTRPC();
     const signUpMutation = useMutation(trpc.auth.signup.mutationOptions({
         onSuccess: async (data) => {
-            console.log("signup created");
             if (data) {
-                console.log("Before response");
                 try {
                     const signInResponse = await signIn("credentials", {
                         email: form.getValues().email,
                         password: form.getValues().password,
                         redirect: false
-                    })
-
-                    console.log(" After SignIn response:", signInResponse);
+                    });
 
                     if (signInResponse?.ok) {
                         toast.success("Account created successfully!");
@@ -47,7 +43,7 @@ export function SignUpForm() {
                 } catch (error) {
                     toast.error("Authentication error occurred after signup");
                     console.error("Sign-in error:", error);
-                }
+                };
             }
         },
         onError: (error) => {

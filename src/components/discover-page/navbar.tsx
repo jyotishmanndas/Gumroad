@@ -35,7 +35,7 @@ export async function DiscoverNavbar() {
                             Start selling
                         </Button>
                         <Button variant="elevated" size="lg">
-                            <ShoppingCart size={18} />
+                            <ShoppingCart className="text-white" size={18} />
                         </Button>
                     </div>
                 </div>
