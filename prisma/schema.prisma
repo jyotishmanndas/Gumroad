@@ -69,6 +69,7 @@ model VerificationToken {
 model Category {
   id    String @id @default(cuid())
   name  String
+  slug  String @unique
   color String
 
   subcategories SubCategory[]
@@ -78,9 +79,9 @@ model Category {
 }
 
 model SubCategory {
-  id   String @id @default(cuid())
-  name String
-
+  id         String   @id @default(cuid())
+  name       String
+  slug       String   @unique
   categoryId String
   category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
 }

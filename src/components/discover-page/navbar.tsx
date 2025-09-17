@@ -6,14 +6,11 @@ import { prisma } from "@/lib/db";
 import { NavCategories } from "./navCategories";
 
 export async function DiscoverNavbar() {
-    // const category = await prisma.category.findMany({
-    //     where: {
-    //         id: "cme2azfmd00013xucg29pybzb"
-    //     },
-    //     include: {
-    //         subcategories: true
-    //     }
-    // });
+    const category = await prisma.category.findMany({
+        include: {
+            subcategories: true
+        }
+    });
 
     return (
         <header className="py-8 px-14 bg-transparent flex items-center justify-center border-b border-[#edecec8c]">
@@ -40,8 +37,7 @@ export async function DiscoverNavbar() {
                     </div>
                 </div>
                 <div className="flex items-center text-[#DDDDDD]">
-                    {/* {JSON.stringify(category)} */}
-                    <NavCategories />
+                    <NavCategories category={category} />
                 </div>
             </div>
         </header>
