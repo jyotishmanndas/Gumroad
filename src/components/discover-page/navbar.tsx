@@ -4,13 +4,18 @@ import { Button } from "../ui/button";
 import { ShoppingCart } from "lucide-react";
 import { prisma } from "@/lib/db";
 import { NavCategories } from "./navCategories";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/authOptions";
 
 export async function DiscoverNavbar() {
-    const category = await prisma.category.findMany({
-        include: {
-            subcategories: true
-        }
-    });
+    const [category, session] = await Promise.all([
+        prisma.category.findMany({
+            include: {
+                subcategories: true
+            }
+        }),
+        getServerSession(authOptions)
+    ]);
 
     return (
         <header className="py-8 px-14 bg-transparent flex items-center justify-center border-b border-[#edecec8c]">
@@ -25,15 +30,23 @@ export async function DiscoverNavbar() {
                         <Input placeholder="search products" className="bg-black text-[#DDDDDD]" />
                     </div>
                     <div className="flex items-center space-x-4">
-                        <Button variant="elevated" className="text-[#DDDDDD]">
-                            Library
-                        </Button>
+                        {session ? (
+                            <Button variant="elevated" className="text-[#DDDDDD]">
+                                Library
+                            </Button>
+                        ) : (
+                            <Button asChild variant="elevated" className="text-[#DDDDDD]">
+                                <Link href="/login">Log in</Link>
+                            </Button>
+                        )}
                         <Button variant="elevated" className="text-[#DDDDDD]">
                             Start selling
                         </Button>
-                        <Button variant="elevated" size="lg">
-                            <ShoppingCart className="text-white" size={18} />
-                        </Button>
+                        {session && (
+                            <Button variant="elevated" size="lg">
+                                <ShoppingCart className="text-white" size={18} />
+                            </Button>
+                        )}
                     </div>
                 </div>
                 <div className="flex items-center text-[#DDDDDD]">

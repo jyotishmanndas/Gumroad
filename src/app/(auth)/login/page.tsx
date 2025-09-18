@@ -1,7 +1,15 @@
 import { LoginForm } from "@/components/forms/login-form";
 import Image from "next/image";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/authOptions";
+import { redirect } from "next/navigation";
 
-export default function LoginPage() {
+export default async function LoginPage() {
+    const session = await getServerSession(authOptions);
+    if (session) {
+        return redirect("/");
+    }
+
     return (
         <div className="grid min-h-svh lg:grid-cols-5 bg-[#242423]">
             <div className=" col-span-3">
@@ -14,7 +22,7 @@ export default function LoginPage() {
                 </div>
             </div>
             <div className=" col-span-2">
-                <div className="relative bg-red-300 h-full w-full flex items-center justify-center">
+                <div className="relative h-full w-full flex items-center justify-center">
                     <Image
                         src="/login-image.webp"
                         alt="Image"

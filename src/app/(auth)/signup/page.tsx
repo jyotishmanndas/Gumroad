@@ -1,7 +1,15 @@
 import { SignUpForm } from "@/components/forms/signup-form";
 import Image from "next/image";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/authOptions";
+import { redirect } from "next/navigation";
 
-export default function SignupPage() {
+export default async function SignupPage() {
+    const session = await getServerSession(authOptions);
+    if (session) {
+        return redirect("/");
+    };
+
     return (
         <div className="grid min-h-svh lg:grid-cols-5 bg-[#242423]">
             <div className=" col-span-3">

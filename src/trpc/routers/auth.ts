@@ -1,7 +1,6 @@
 
 import { prisma } from "@/lib/db";
 import { baseProcedure, createTRPCRouter } from "../init";
-import { z } from "zod";
 import { TRPCError } from "@trpc/server";
 import bcrypt from "bcryptjs"
 import { registerSchema } from "@/lib/zod";
