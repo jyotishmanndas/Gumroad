@@ -140,7 +140,7 @@ async function main() {
             create: {
                 name: category.name,
                 slug: category.slug,
-                color: category.color ?? '#FFFFFF',
+                color: category.color ?? '#242423',
                 subcategories: {
                     create: category.subcategories?.map((sub) => ({
                         name: sub.name,
