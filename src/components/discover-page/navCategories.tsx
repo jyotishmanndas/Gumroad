@@ -26,7 +26,7 @@ export function NavCategories({ category }: navCategoriesProps) {
                             "h-11 bg-transparent px-4 border-transparent rounded-full hover:border-neutral-500 hover:bg-black",
                             activeCategory === category.name && "bg-black border-neutral-500 shadow-[4px_4px_0px_0px_rgba(255,255,255)] -translate-x-[4px] -translate-y-[4px]"
                         )}>
-                            <Link href={`${category.slug}`}>
+                            <Link href={`/${category.slug}`}>
                                 {category.name}
                             </Link>
                         </Button>
@@ -48,7 +48,7 @@ export function NavCategories({ category }: navCategoriesProps) {
                                     {category.subcategories?.map((subcategory: any) => (
                                         <Link
                                             key={subcategory.slug}
-                                            href="/"
+                                            href={`/${category.slug}/${subcategory.slug}`}
                                             className="block px-4 py-3 text-md text-foreground hover:bg-neutral-200 hover:text-accent-foreground transition-colors duration-150"
                                         >
                                             {subcategory.slug}
